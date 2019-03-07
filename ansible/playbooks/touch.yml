@@ -1,0 +1,9 @@
+---
+
+- hosts: servers
+
+  tasks:
+    - name: "{{path}}: {{file_state}}"
+      file:
+        path: "{{path}}"
+        state: "{{file_state}}"

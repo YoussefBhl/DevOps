@@ -1,0 +1,10 @@
+---
+
+- hosts: servers
+
+  tasks:
+    - name: "create {{path}} using template j2"
+      template:
+        src: ./templates/conf.j2
+        dest: "{{path}}"
+

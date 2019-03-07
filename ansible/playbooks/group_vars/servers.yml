@@ -1,0 +1,5 @@
+---
+ansible_ssh_user: "ubuntu"
+ansible_ssh_pass: "ubuntu"
+path: "/tmp/toto"
+file_state: "touch"
