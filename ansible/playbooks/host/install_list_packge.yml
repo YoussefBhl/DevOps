@@ -1,0 +1,13 @@
+---
+
+- hosts: servers
+
+  tasks:
+    - name: Install a list of packages
+      become: yes
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages:
+          - python
+          - curl
