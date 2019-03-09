@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+
+    - name: Provision a set of instances
+      ec2:
+         #key_name: my_key
+         #group: test
+         instance_type: t2.micro
+         image: ami-0d4cfd66
+         wait: true
+         region: us-east-1
+         exact_count: 1 
+         count_tag:
+            Name: ec2_test
+         instance_tags:
+            Name: ec2_test
+      register: ec2
+    - debug:
+        msg: "this is debug {{ec2}}"
+    - name: Terminate instances
+      ec2:
+        state: 'absent'
+        instance_ids: "{{ ec2.instance_ids }}"
+        region: us-east-1
