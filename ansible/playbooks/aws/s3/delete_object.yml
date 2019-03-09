@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+   - name: Delete an object from a bucket
+     aws_s3:
+       bucket: thisisanemptybuckerfortest
+       object: file.txt
+       mode: delobj 

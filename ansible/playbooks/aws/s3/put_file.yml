@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: Simple PUT operation
+      aws_s3:
+        bucket: thisisanemptybuckerfortest 
+        object: /file.txt
+        src: ./file.txt
+        mode: put
+    
